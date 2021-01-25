@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * HOMMSocialFeed plugin for Craft CMS 3.x
+ *
+ * HOMMSocialFeed feeds/_hideMediaTrigger.twig
+ *
+ * @author    Benjamin Ammann
+ * @copyright Copyright (c) 2021 Benjamin Ammann
+ * @link      https://github.com/HOMMinteractive
+ * @package   HOMMSocialFeed
+ * @since     0.0.1
+ */
+#}
+
+<div class="btn menubtn" role="button">{{ "Hide image/video"|t('hommsocialfeed') }}</div>
+<div class="menu">
+    <ul>
+        <li>
+            <a class="formsubmit" data-param="hideMedia" data-value="1">{{ 'Hide'|t('hommsocialfeed') }}</a>
+        </li>
+        <li>
+            <a class="formsubmit" data-param="hideMedia" data-value="0">{{ 'Show'|t('hommsocialfeed') }}</a>
+        </li>
+    </ul>
+</div>

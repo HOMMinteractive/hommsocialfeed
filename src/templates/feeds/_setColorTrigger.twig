@@ -1,0 +1,35 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * HOMMSocialFeed plugin for Craft CMS 3.x
+ *
+ * HOMMSocialFeed feeds/_setColorTrigger.twig
+ *
+ * @author    Benjamin Ammann
+ * @copyright Copyright (c) 2021 Benjamin Ammann
+ * @link      https://github.com/HOMMinteractive
+ * @package   HOMMSocialFeed
+ * @since     0.0.1
+ */
+#}
+
+<div class="btn menubtn" role="button">{{ "Change color"|t('hommsocialfeed') }}</div>
+<div class="menu">
+    <ul>
+        {% for handle, color in colors|reverse %}
+            <li>
+                <a class="formsubmit"
+                   data-param="color"
+                   data-value="{{ handle != 'reset' ? handle : '' }}"
+                   style="background: {{ color != 'reset' ? color : 'unset' }}"
+                >
+                    {% if handle == 'reset' %}
+                        {{- "None"|t('hommsocialfeed') -}}
+                    {% else %}
+                        {{- handle|capitalize -}}
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

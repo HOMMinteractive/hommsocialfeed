@@ -1,0 +1,28 @@
+/**
+ * HOMMSocialFeed plugin for Craft CMS
+ *
+ * HOMMSocialFeed CSS
+ *
+ * @author    Benjamin Ammann
+ * @copyright Copyright (c) 2021 Benjamin Ammann
+ * @link      https://github.com/HOMMinteractive
+ * @package   HOMMSocialFeed
+ * @since     0.0.1
+ */
+
+td[data-attr=image] {
+    text-align: center !important;
+}
+
+td[data-attr=image] > img {
+    max-height: 150px;
+    max-width: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+td[data-attr=color] > span {
+    height: 15px;
+    width: 15px;
+}

@@ -1,0 +1,54 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * HOMMSocialFeed plugin for Craft CMS 3.x
+ *
+ * HOMMSocialFeed settings.twig
+ *
+ * @author    Benjamin Ammann
+ * @copyright Copyright (c) 2021 Benjamin Ammann
+ * @link      https://github.com/HOMMinteractive
+ * @package   HOMMSocialFeed
+ * @since     0.0.1
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("homm\\hommsocialfeed\\assetbundles\\settings\\SettingsAsset") %}
+
+{{ forms.textField({
+    label: 'Social Feed API path'|t('hommsocialfeed'),
+    instructions: 'Example: /api/feeds/homminteractive'|t('hommsocialfeed'),
+    id: 'apiPath',
+    name: 'apiPath',
+    value: settings['apiPath'],
+    required: true,
+}) }}
+
+{{ forms.textField({
+    label: 'Number of Feeds'|t('hommsocialfeed'),
+    id: 'numberOfFeeds',
+    name: 'numberOfFeeds',
+    value: settings['numberOfFeeds'],
+    required: true,
+}) }}
+
+<div id="colors">
+    {% for handle, color in settings['colors']|reverse %}
+        {% if handle != 'reset' %}
+            {{ forms.colorField({
+                label: handle|capitalize,
+                id: 'colors[' ~ handle ~ ']' ,
+                name: 'colors[' ~ handle ~ ']' ,
+                value: color,
+            }) }}
+        {% endif %}
+    {% endfor %}
+</div>
+
+<p>
+    {{ 'No entries available?'|t('hommsocialfeed') }}<br>
+    {# TODO: replace with a button, js and a loading animation #}
+    <a href="/admin/hommsocialfeed/update">{{ 'Try to update your feeds'|t('hommsocialfeed') }}</a>
+</p>
