@@ -51,6 +51,8 @@ You can set following properties:
 - **Color:** Change or reset the color for specific feeds
 - **Hide image/video:** Hide the image or video for specific feeds
 
+Usage in the template:
+
 ``` 
 {% for socialFeed in craft.socialFeed.all([{ isMediaHidden: false }, ['not', { image: null }]]) %}
     <div class="{{ socialFeed.color }}">
