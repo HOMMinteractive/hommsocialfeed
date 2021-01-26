@@ -25,7 +25,7 @@ class SocialFeedService extends Component
     // Public Methods
     // =========================================================================
 
-    public function get($conditions = null, $numberOfFeeds = null)
+    public function get($conditions = [], $numberOfFeeds = null)
     {
         $firstKey = array_key_first($conditions);
         $query = SocialFeed::find();
