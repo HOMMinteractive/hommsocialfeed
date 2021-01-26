@@ -38,7 +38,7 @@ Go to _Settings > HOMMSocialFeed_ to setup the basic configuration options:
   
 Add the following CronJob, to regularly update your social feeds:
 ```bash
-/path/to/your/concrete/craft hommsocialfeed/social-feeds/update
+/path/to/your/project/craft hommsocialfeed/social-feeds/update
 ```
 
 ## Using HOMMSocialFeed
