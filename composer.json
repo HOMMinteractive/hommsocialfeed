@@ -2,7 +2,7 @@
     "name": "homm/hommsocialfeed",
     "description": "Craft CMS Social Feed Adapter for juicer.io",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "keywords": [
         "craft",
         "cms",
