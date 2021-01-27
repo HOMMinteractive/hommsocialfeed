@@ -40,4 +40,5 @@ return [
     'All feeds' => 'All feeds',
     'Could not update.' => 'Could not update.',
     'Social Feeds' => 'Social Feeds',
+    'Number of Posts' => 'Number of Posts',
 ];
