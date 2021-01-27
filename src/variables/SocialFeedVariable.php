@@ -14,7 +14,7 @@ use homm\hommsocialfeed\HOMMSocialFeed;
 
 class SocialFeedVariable
 {
-    public function all($conditions = null)
+    public function all($conditions = [])
     {
         return HOMMSocialFeed::$plugin->socialFeedService->get($conditions);
     }
