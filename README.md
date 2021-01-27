@@ -98,5 +98,6 @@ More complex example in the template (Twig):
 Some things to do, and ideas for potential features:
 
 * Add filters in the CP section
+* Usability: improve update link (replace with a button, js and a loading animation) 
 
 Brought to you by [HOMM interactive](https://github.com/HOMMinteractive)
