@@ -16,7 +16,7 @@
 return [
     '{name} plugin loaded' => '{name} Plugin geladen',
     'Social Feed API path' => 'Social Feed API-Pfad',
-    'Example: api/feeds/homminteractive' => 'Beispiel: /api/feeds/homminteractive',
+    'Example: /api/feeds/artdecohotelmontana' => 'Beispiel: /api/feeds/artdecohotelmontana',
     'No entries available?' => 'Keine Einträge vorhanden?',
     'Try to update your feeds' => 'Versuche Deine Feeds zu aktualisieren',
     'Instructions and HTML/CSS/JS templates' => 'Anleitungen und HTML/CSS/JS Vorlagen',

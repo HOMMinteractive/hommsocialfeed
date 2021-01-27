@@ -19,7 +19,7 @@
 
 {{ forms.textField({
     label: 'Social Feed API path'|t('hommsocialfeed'),
-    instructions: 'Example: /api/feeds/homminteractive'|t('hommsocialfeed'),
+    instructions: 'Example: /api/feeds/artdecohotelmontana'|t('hommsocialfeed'),
     id: 'apiPath',
     name: 'apiPath',
     value: settings['apiPath'],
@@ -27,7 +27,7 @@
 }) }}
 
 {{ forms.textField({
-    label: 'Number of Feeds'|t('hommsocialfeed'),
+    label: 'Number of Posts'|t('hommsocialfeed'),
     id: 'numberOfFeeds',
     name: 'numberOfFeeds',
     value: settings['numberOfFeeds'],
@@ -48,7 +48,7 @@
 </div>
 
 <p>
-    {{ 'No entries available?'|t('hommsocialfeed') }}<br>
+    <strong>{{ 'No entries available?'|t('hommsocialfeed') }}</strong><br>
     {# TODO: replace with a button, js and a loading animation #}
     <a href="/admin/hommsocialfeed/update">{{ 'Try to update your feeds'|t('hommsocialfeed') }}</a>
 </p>

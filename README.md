@@ -31,8 +31,8 @@ for easy integration in your application.
 
 Go to _Settings > HOMMSocialFeed_ to setup the basic configuration options:
 
-- **Social Feed API path:** The path to your Juicer API
-- **Number of feeds:** The amount of feeds to query by default
+- **Social Feed API path:** The path to your Juicer API (for example: https://www.juicer.io/api/feeds/artdecohotelmontana)
+- **Number of Posts:** The amount of posts to query by default
 - **Colors:** The available colors you can set per feed. These values are only used for the CP section. In the query you
   retrieve the handles dark, highlight and muted.
   
@@ -51,8 +51,14 @@ You can set following properties:
 - **Color:** Change or reset the color for specific feeds
 - **Hide image/video:** Hide the image or video for specific feeds
 
-Usage in the template:
+Basic usage in the template (Twig):
+``` 
+{% for socialFeed in craft.socialFeed.all([]) %}
+    <img src="{{ socialFeed.image }}" alt="{{ socialFeed.message|slice(0, 10) }}" loading="lazy">
+{% endfor %}
+```
 
+More complex example in the template (Twig):
 ``` 
 {% for socialFeed in craft.socialFeed.all([{ isMediaHidden: false }, ['not', { image: null }]]) %}
     <div class="{{ socialFeed.color }}">
