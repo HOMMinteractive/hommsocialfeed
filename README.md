@@ -51,6 +51,42 @@ You can set following properties:
 - **Color:** Change or reset the color for specific feeds
 - **Hide image/video:** Hide the image or video for specific feeds
 
+Usage in the template:
+
+``` 
+{% for socialFeed in craft.socialFeed.all([{ isMediaHidden: false }, ['not', { image: null }]]) %}
+    <div class="{{ socialFeed.color }}">
+        {% if not socialFeed.isMediaHidden %}
+            {% if socialFeed.video is not empty %}
+                <div class="img">
+                    <video class="video" controls poster="{{ socialFeed.image }}">
+                        <source src="{{ socialFeed.video }}" type="video/mp4">
+                    </video>
+                </div>
+            {% elseif socialFeed.image is not empty %}
+                <a href="{{ socialFeed.feedUrl }}" title="{{ readMore }}" target="_blank">
+                    <img src="{{ socialFeed.image }}" alt="{{ socialFeed.message|slice(0, 10) }}" loading="lazy">
+                    <span>                             
+                        {{ socialFeed.feedDateCreated|date('long') }}
+                    </span>
+                </a>
+            {% endif %}
+        {% endif %}
+        {% if socialFeed.message is not empty %}
+            <div>
+                {% if socialFeed.message|length > 120 %}
+                    {% set message = socialFeed.message|slice(0, 120) ~ '...</p>' %}
+                {% endif %}
+                {{ (message ?? socialFeed.message)|raw }}
+                <a href="{{ socialFeed.feedUrl }}" title="{{ readMore }}" target="_blank">
+                    {{ readMore }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}
+```
+
 ## HOMMSocialFeed Roadmap
 
 Some things to do, and ideas for potential features:
