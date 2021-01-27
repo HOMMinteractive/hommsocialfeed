@@ -31,7 +31,7 @@ for easy integration in your application.
 
 Go to _Settings > HOMMSocialFeed_ to setup the basic configuration options:
 
-- **Social Feed API path:** The path to your Juicer API (for example: https://www.juicer.io/api/feeds/homm-interactive)
+- **Social Feed API path:** The path to your Juicer API (for example: https://www.juicer.io/api/feeds/artdecohotelmontana)
 - **Number of Posts:** The amount of posts to query by default
 - **Colors:** The available colors you can set per feed. These values are only used for the CP section. In the query you
   retrieve the handles dark, highlight and muted.
