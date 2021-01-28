@@ -2,7 +2,7 @@
 
 Craft CMS Social Feed Adapter for juicer.io
 
-![Screenshot](resources/img/plugin-logo.svg)
+![Screenshot](resources/img/plugin-logo-v2.svg)
 
 ## Requirements
 
