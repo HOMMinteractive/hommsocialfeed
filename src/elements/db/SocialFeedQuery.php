@@ -11,7 +11,6 @@
 namespace homm\hommsocialfeed\elements\db;
 
 use craft\elements\db\ElementQuery;
-use homm\hommsocialfeed\elements\Product;
 
 class SocialFeedQuery extends ElementQuery
 {

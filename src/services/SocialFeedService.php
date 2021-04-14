@@ -13,7 +13,6 @@ namespace homm\hommsocialfeed\services;
 use craft\base\Component;
 use homm\hommsocialfeed\api\JuicerClient;
 use homm\hommsocialfeed\elements\SocialFeed;
-use homm\hommsocialfeed\HOMMSocialFeed;
 
 /**
  * @author    Benjamin Ammann
@@ -25,26 +24,15 @@ class SocialFeedService extends Component
     // Public Methods
     // =========================================================================
 
-    public function get($conditions = [], $numberOfFeeds = null)
-    {
-        $firstKey = array_key_first($conditions);
-        $query = SocialFeed::find();
-
-        foreach ($conditions as $key => $condition) {
-            if ($key == $firstKey) {
-                $query = $query->where($condition);
-                continue;
-            }
-            $query = $query->andWhere($condition);
-        }
-
-        return $query->limit($numberOfFeeds ?? HOMMSocialFeed::$plugin->getSettings()->numberOfFeeds)->all();
-    }
-
+    /**
+     * Update attributes of a specific feed and validate them
+     *
+     * @return bool|null
+     */
     public function update(SocialFeed $socialFeed, $attributes = [])
     {
         if (empty($attributes)) {
-            return;
+            return null;
         }
 
         foreach ($attributes as $attribute => $value) {
@@ -57,7 +45,7 @@ class SocialFeedService extends Component
         return \Craft::$app->elements->saveElement($socialFeed);
     }
 
-    /*
+    /**
      * Insert new feeds, update existing, delete non existing
      *
      * @return void
@@ -74,7 +62,7 @@ class SocialFeedService extends Component
         foreach ($posts as $post) {
             $socialFeed = new SocialFeed();
             if (in_array($post->id, array_column($socialFeeds, 'feedId'))) {
-                $socialFeed = SocialFeed::find()->where(['feedId' => $post->id])->one();
+                $socialFeed = SocialFeed::findOne(['feedId' => $post->id]);
             }
 
             $socialFeed->feedId = $post->id;

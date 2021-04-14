@@ -35,8 +35,9 @@ Go to _Settings > HOMMSocialFeed_ to setup the basic configuration options:
 - **Number of Posts:** The amount of posts to query by default
 - **Colors:** The available colors you can set per feed. These values are only used for the CP section. In the query you
   retrieve the handles dark, highlight and muted.
-  
+
 Add the following CronJob, to regularly update your social feeds:
+
 ```bash
 /path/to/your/project/craft hommsocialfeed/social-feeds/update
 ```
@@ -47,19 +48,22 @@ Select _HOMMSocialFeed_ in the left navigation.
 
 You can set following properties:
 
-- **Status:** Disable or enable specific feeds
-- **Color:** Change or reset the color for specific feeds
-- **Hide image/video:** Hide the image or video for specific feeds
+- **Status:** Disable or enable specific posts
+- **Color:** Change or reset the color for specific posts
+- **Hide image/video:** Hide the image or video for specific posts
 
 Basic usage in the template (Twig):
-``` 
-{% for socialFeed in craft.socialFeed.all([]) %}
+
+```html
+{% for socialFeed in craft.socialFeed.all() %}
     <img src="{{ socialFeed.image }}" alt="{{ socialFeed.message|slice(0, 10) }}" loading="lazy">
 {% endfor %}
 ```
 
 More complex example in the template (Twig):
-``` 
+
+```html
+{# Query all posts which has an image and the image is not hidden #}
 {% for socialFeed in craft.socialFeed.all([{ isMediaHidden: false }, ['not', { image: null }]]) %}
     <div class="{{ socialFeed.color }}">
         {% if not socialFeed.isMediaHidden %}
@@ -98,6 +102,6 @@ More complex example in the template (Twig):
 Some things to do, and ideas for potential features:
 
 * Add filters in the CP section
-* Usability: improve update link (replace with a button, js and a loading animation) 
+* Usability: improve update link (replace with a button, js and a loading animation)
 
 Brought to you by [HOMM interactive](https://github.com/HOMMinteractive)
