@@ -25,9 +25,9 @@ class SocialFeedVariable
      *
      * @param array $conditions Some additional query conditions.
      * @param null $limit If not provided, use the limit from the settings.
-     * @return ElementInterface
+     * @return array<ElementInterface>
      */
-    public function all($conditions = [], $limit = null): ElementInterface
+    public function all($conditions = [], $limit = null): array
     {
         return $this->posts($conditions, $limit)->all();
     }
