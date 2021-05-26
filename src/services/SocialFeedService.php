@@ -10,6 +10,7 @@
 
 namespace homm\hommsocialfeed\services;
 
+use Craft;
 use craft\base\Component;
 use homm\hommsocialfeed\api\JuicerClient;
 use homm\hommsocialfeed\elements\SocialFeed;
@@ -42,13 +43,14 @@ class SocialFeedService extends Component
         if (!$socialFeed->validate()) {
             return false;
         }
-        return \Craft::$app->elements->saveElement($socialFeed);
+
+        return Craft::$app->elements->saveElement($socialFeed);
     }
 
     /**
      * Insert new feeds, update existing, delete non existing
      *
-     * @return void
+     * @return array|true
      */
     public function fetch()
     {
@@ -57,32 +59,31 @@ class SocialFeedService extends Component
         $posts = json_decode($response->getBody())->posts->items; // TODO: extend the Guzzle ResponseInterface
 
         $errors = [];
-        $success = true;
         $socialFeeds = SocialFeed::find()->where(['feedId' => array_column($posts, 'id')])->all();
+        $feedIds = array_column($socialFeeds, 'feedId');
         foreach ($posts as $post) {
             $socialFeed = new SocialFeed();
-            if (in_array($post->id, array_column($socialFeeds, 'feedId'))) {
-                $socialFeed = SocialFeed::findOne(['feedId' => $post->id]);
+            if (in_array($post->id, $feedIds)) {
+                $socialFeed = SocialFeed::find()->where(['feedId' => $post->id])->one();
             }
 
-            $socialFeed->feedId = $post->id;
-            $socialFeed->feedDateCreated = date('Y-m-d H:i:s', strtotime($post->external_created_at));
-            $socialFeed->feedUrl = $post->full_url;
-            $socialFeed->externalUrl = $post->external;
-            $socialFeed->source = $post->source->source;
-            $socialFeed->sourceOptions = $post->source->options;
-            $socialFeed->message = $this->replaceEmojis($post->message);
-            $socialFeed->likeCount = $post->like_count;
-            $socialFeed->image = $post->image;
-            $socialFeed->video = $post->video ?? null;
+            $attributes = [
+                'feedId' => $post->id,
+                'feedDateCreated' => date('Y-m-d H:i:s', strtotime($post->external_created_at)),
+                'feedUrl' => $post->full_url,
+                'externalUrl' => $post->external,
+                'source' => $post->source->source,
+                'sourceOptions' => $post->source->options,
+                'message' => $this->replaceEmojis($post->message),
+                'likeCount' => $post->like_count,
+                'image' => $post->image,
+                'video' => $post->video ?? null,
+            ];
 
-            if (!$socialFeed->validate()) {
-                \Craft::error($socialFeed->getErrors());
+            if (!$this->update($socialFeed, $attributes)) {
+                $errors[$socialFeed->id] = $socialFeed->getErrors();
+                Craft::error($errors[$socialFeed->id]);
                 continue;
-            }
-
-            if (!\Craft::$app->elements->saveElement($socialFeed)) {
-                $success = false;
             }
         }
 
@@ -90,7 +91,7 @@ class SocialFeedService extends Component
             return $errors;
         }
 
-        return $success;
+        return true;
     }
 
     protected function replaceEmojis(string $value, string $replace = '')

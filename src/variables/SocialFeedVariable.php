@@ -25,11 +25,12 @@ class SocialFeedVariable
      *
      * @param array $conditions Some additional query conditions.
      * @param null $limit If not provided, use the limit from the settings.
+     * @param null $orderBy If not provided, order by the feed date created.
      * @return array<ElementInterface>
      */
-    public function all($conditions = [], $limit = null): array
+    public function all($conditions = [], $limit = null, $orderBy = null): array
     {
-        return $this->posts($conditions, $limit)->all();
+        return $this->posts($conditions, $limit, $orderBy)->all();
     }
 
     /**
@@ -37,12 +38,15 @@ class SocialFeedVariable
      *
      * @param array $conditions Some additional query conditions.
      * @param null $limit If not provided, use the limit from the settings.
+     * @param null $orderBy If not provided, order by the feed date created.
      * @return ElementQueryInterface
      */
-    public function posts($conditions = [], $limit = null): ElementQueryInterface
+    public function posts($conditions = [], $limit = null, $orderBy = null): ElementQueryInterface
     {
         $firstKey = array_key_first($conditions);
         $query = SocialFeed::find();
+        $limit = $limit ?? HOMMSocialFeed::$plugin->getSettings()->numberOfFeeds;
+        $orderBy = $orderBy ?? ['homm_socialfeeds.feedDateCreated' => SORT_DESC];
 
         foreach ($conditions as $key => $condition) {
             if ($key == $firstKey) {
@@ -52,6 +56,8 @@ class SocialFeedVariable
             $query = $query->andWhere($condition);
         }
 
-        return $query->limit($limit ?? HOMMSocialFeed::$plugin->getSettings()->numberOfFeeds);
+        return $query
+            ->limit($limit)
+            ->orderBy($orderBy);
     }
 }

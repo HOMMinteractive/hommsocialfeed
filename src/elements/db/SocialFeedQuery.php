@@ -247,7 +247,7 @@ class SocialFeedQuery extends ElementQuery
                 'homm_socialfeeds.dateUpdated',
                 'homm_socialfeeds.uid',
             ]
-        )->orderBy(['homm_socialfeeds.feedDateCreated' => SORT_DESC]);
+        );
 
         return parent::beforePrepare();
     }

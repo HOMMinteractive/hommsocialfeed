@@ -177,7 +177,7 @@ class SocialFeed extends Element
         $sources[] = [
             'key' => '*',
             'label' => Craft::t('hommsocialfeed', 'All feeds'),
-            'badgeCount' => self::find()->count(),
+            'badgeCount' => self::find()->anyStatus()->count(),
             'defaultSort' => ['feedDateCreated', 'desc'],
             'criteria' => [],
         ];

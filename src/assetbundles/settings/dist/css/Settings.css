@@ -15,10 +15,10 @@
     flex-direction: row;
 }
 
-#settings-colors > div {
+#settings-colors > fieldset {
     margin: 24px 10px !important;
 }
 
-#settings-colors > div:first-child {
+#settings-colors > fieldset:first-child {
     margin-left: 0 !important;
 }

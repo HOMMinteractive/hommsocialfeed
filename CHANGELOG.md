@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres
 to [Semantic Versioning](http://semver.org/).
 
+## 1.1.0 - 2021-05-26
+
+- Do not sort feeds globally to allow custom sorting
+- Moved sorting to the SocialFeedVariable
+- Fixed social feed api updates
+- Updated dependencies
+- Code refactoring
+- Styling improvements
+- Other small bugfixes
+
 ## 1.0.5 - 2021-04-21
 
 - Remove emojis from post message

@@ -39,8 +39,8 @@ class SocialFeedsController extends Controller
         $result = HOMMSocialFeed::$plugin->socialFeedService->fetch();
 
         if ($result !== true) {
-            Console::error('Could not update.');
-            Console::error(var_dump($result));
+            Console::error('Could not correctly update feeds.');
+            Console::error(print_r($result, true));
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
