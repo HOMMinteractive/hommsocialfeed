@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres
 to [Semantic Versioning](http://semver.org/).
 
+## 1.1.1 - 2021-06-11
+
+- Changed update feeds button
+- Use the cpUrl() function in settings.twig
+
 ## 1.1.0 - 2021-05-26
 
 - Do not sort feeds globally to allow custom sorting

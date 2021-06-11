@@ -18,7 +18,7 @@ return [
     'Social Feed API path' => 'Social Feed API path',
     'Example: /api/feeds/artdecohotelmontana' => 'Example: /api/feeds/artdecohotelmontana',
     'No entries available?' => 'No entries available?',
-    'Try to update your feeds' => 'Try to update your feeds',
+    'Update feeds manually' => 'Update feeds manually',
     'Instructions and HTML/CSS/JS templates' => 'Instructions and HTML/CSS/JS templates',
     'Set color' => 'Set color',
     'Successfully updated.' => 'Successfully updated.',

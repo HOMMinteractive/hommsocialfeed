@@ -48,7 +48,9 @@
 </div>
 
 <p>
-    <strong>{{ 'No entries available?'|t('hommsocialfeed') }}</strong><br>
-    {# TODO: replace with a button, js and a loading animation #}
-    <a href="/admin/hommsocialfeed/update">{{ 'Try to update your feeds'|t('hommsocialfeed') }}</a>
+    <strong>{{ 'No entries available?'|t('hommsocialfeed') }}</strong>
+    <br><br>
+    <a href="{{ cpUrl('hommsocialfeed/update') }}" class="btn submit">
+        {{ 'Update feeds manually'|t('hommsocialfeed') }}
+    </a>
 </p>
