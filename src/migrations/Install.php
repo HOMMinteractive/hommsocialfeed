@@ -35,6 +35,7 @@ class Install extends Migration
                 'message' => $this->longText()->notNull(),
                 'likeCount' => $this->integer()->unsigned()->notNull()->defaultValue(0),
                 'image' => $this->string(1024),
+                'additionalPhotos' => $this->text(),
                 'video' => $this->string(1024),
                 'isMediaHidden' => $this->boolean()->notNull()->defaultValue(false),
                 'color' => $this->string(20),

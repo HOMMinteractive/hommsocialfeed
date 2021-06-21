@@ -77,6 +77,7 @@ class SocialFeedService extends Component
                 'message' => $this->replaceEmojis($post->message),
                 'likeCount' => $post->like_count,
                 'image' => $post->image,
+                'additionalPhotos' => $post->additional_photos,
                 'video' => $post->video ?? null,
             ];
 

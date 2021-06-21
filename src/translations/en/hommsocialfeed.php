@@ -31,6 +31,7 @@ return [
     'Message' => 'Message',
     'Likes' => 'Likes',
     'Image' => 'Image',
+    'Additional photos' => 'Additional photos',
     'Video' => 'Video',
     'Hide image/video' => 'Hide image/video',
     'Color' => 'Color',

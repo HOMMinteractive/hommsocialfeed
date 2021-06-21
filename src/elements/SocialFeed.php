@@ -83,6 +83,11 @@ class SocialFeed extends Element
     public $image = null;
 
     /**
+     * @var array|null Additional photos URL
+     */
+    public $additionalPhotos = null;
+
+    /**
      * @var string|null Video URL
      */
     public $video = null;
@@ -150,6 +155,7 @@ class SocialFeed extends Element
             'message' => ['label' => Craft::t('hommsocialfeed', 'Message')],
             'likeCount' => ['label' => Craft::t('hommsocialfeed', 'Likes')],
             'image' => ['label' => Craft::t('hommsocialfeed', 'Image')],
+            'additionalPhotos' => ['label' => Craft::t('hommsocialfeed', 'Additional photos')],
             'video' => ['label' => Craft::t('hommsocialfeed', 'Video')],
             'isMediaHidden' => ['label' => Craft::t('hommsocialfeed', 'Hide image/video')],
             'color' => ['label' => Craft::t('hommsocialfeed', 'Color')],
@@ -228,6 +234,7 @@ class SocialFeed extends Element
             'message',
             'likeCount',
             'image',
+            'additionalPhotos',
             'video',
             'color'
         ];
@@ -256,9 +263,9 @@ class SocialFeed extends Element
 
         $rules[] = [['feedId', 'feedDateCreated', 'feedUrl', 'message'], 'required'];
         $rules[] = [['feedId', 'likeCount'], 'number', 'integerOnly' => true];
-        $rules[] = [['feedUrl', 'externalUrl', 'source', 'sourceOptions', 'message', 'video', 'color'], 'trim'];
+        $rules[] = [['feedUrl', 'externalUrl', 'source', 'sourceOptions', 'message', 'image', 'video', 'color'], 'trim'];
         $rules[] = [
-            ['feedUrl', 'externalUrl', 'source', 'sourceOptions', 'message', 'video', 'color'],
+            ['feedUrl', 'externalUrl', 'source', 'sourceOptions', 'message', 'image', 'video', 'color'],
             StringValidator::class,
             'disallowMb4' => true
         ];
@@ -283,6 +290,8 @@ class SocialFeed extends Element
             }
         }
 
+        $this->additionalPhotos = !empty($this->additionalPhotos) ? json_encode($this->additionalPhotos) : null;
+
         return parent::beforeSave($isNew);
     }
 
@@ -301,6 +310,7 @@ class SocialFeed extends Element
             'message' => $this->message,
             'likeCount' => $this->likeCount,
             'image' => $this->image,
+            'additionalPhotos' => $this->additionalPhotos,
             'video' => $this->video,
             'isMediaHidden' => $this->isMediaHidden,
             'color' => $this->color,

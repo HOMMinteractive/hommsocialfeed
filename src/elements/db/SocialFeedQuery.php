@@ -64,6 +64,11 @@ class SocialFeedQuery extends ElementQuery
     public $image = null;
 
     /**
+     * @var array|null Additional photos URL
+     */
+    public $additionalPhotos = null;
+
+    /**
      * @var string|null Video URL
      */
     public $video = null;
@@ -186,6 +191,18 @@ class SocialFeedQuery extends ElementQuery
     }
 
     /**
+     * Set the additional photos URLs
+     *
+     * @param array|null $value
+     * @return $this
+     */
+    public function additionalPhotos($value = null)
+    {
+        $this->additionalPhotos = $value;
+        return $this;
+    }
+
+    /**
      * Mark the media as hidden or not
      *
      * @param bool $value
@@ -240,6 +257,7 @@ class SocialFeedQuery extends ElementQuery
                 'homm_socialfeeds.message',
                 'homm_socialfeeds.likeCount',
                 'homm_socialfeeds.image',
+                'homm_socialfeeds.additionalPhotos',
                 'homm_socialfeeds.video',
                 'homm_socialfeeds.isMediaHidden',
                 'homm_socialfeeds.color',

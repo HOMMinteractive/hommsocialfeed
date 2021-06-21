@@ -31,6 +31,7 @@ return [
     'Message' => 'Nachricht',
     'Likes' => 'Likes',
     'Image' => 'Bild',
+    'Additional photos' => 'Weitere Bilder',
     'Video' => 'Video',
     'Hide image/video' => 'Bild/Video verbergen',
     'Color' => 'Farbe',

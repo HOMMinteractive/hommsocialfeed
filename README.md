@@ -80,6 +80,9 @@ More complex example in the template (Twig):
                         {{ socialFeed.feedDateCreated|date('long') }}
                     </span>
                 </a>
+                {% for additionalPhoto in socialFeed.additionalPhotos|json_decode %}
+                    <img src="additionalPhoto" alt="{{ socialFeed.message|slice(0, 10) }}" loading="lazy" style="display: none;">
+                {% endfor %}
             {% endif %}
         {% endif %}
         {% if socialFeed.message is not empty %}
