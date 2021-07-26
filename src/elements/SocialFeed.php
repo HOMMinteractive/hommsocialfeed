@@ -288,6 +288,12 @@ class SocialFeed extends Element
             } catch (BadResponseException $e) {
                 $this->video = null;
             }
+        } else {
+            $this->video = null;
+        }
+
+        if (!$this->image) {
+            $this->image = null;
         }
 
         $this->additionalPhotos = !empty($this->additionalPhotos) ? json_encode($this->additionalPhotos) : null;
