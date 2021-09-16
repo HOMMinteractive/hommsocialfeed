@@ -1,9 +1,15 @@
-# HOMMSocialFeed Changelog
+# HOMM Social Feed Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres
 to [Semantic Versioning](http://semver.org/).
+
+## 1.2.3 - 2021-09-16
+
+- Consistent plugin naming in all files
+- Make the `$orderBy` parameter optional
+- Updated PHPDocs and README.md
 
 ## 1.2.2 - 2021-07-26
 

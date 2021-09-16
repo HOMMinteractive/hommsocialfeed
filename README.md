@@ -1,6 +1,6 @@
-# HOMMSocialFeed plugin for Craft CMS 3.x
+# HOMM Social Feed plugin for Craft CMS 3.x
 
-Craft CMS Social Feed Adapter for juicer.io
+HOMM Social Feed Adapter for Juicer
 
 ![Screenshot](resources/img/plugin-logo-v2.svg)
 
@@ -20,16 +20,16 @@ To install the plugin, follow these instructions.
 
         composer require homm/hommsocialfeed
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for HOMMSocialFeed.
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for HOMM Social Feed.
 
-## HOMMSocialFeed Overview
+## HOMM Social Feed Overview
 
 HOMM Social Feed is a Craft adapter for [juicer.io](https://www.juicer.io) to collect all of your social media feeds
 for easy integration in your application.
 
-## Configuring HOMMSocialFeed
+## Configuring HOMM Social Feed
 
-Go to _Settings > HOMMSocialFeed_ to setup the basic configuration options:
+Go to _Settings > HOMM Social Feed_ to setup the basic configuration options:
 
 - **Social Feed API path:** The path to your Juicer API (for example: https://www.juicer.io/api/feeds/artdecohotelmontana)
 - **Number of Posts:** The amount of posts to query by default
@@ -42,9 +42,9 @@ Add the following CronJob, to regularly update your social feeds:
 /path/to/your/project/craft hommsocialfeed/social-feeds/update
 ```
 
-## Using HOMMSocialFeed
+## Using HOMM Social Feed
 
-Select _HOMMSocialFeed_ in the left navigation.
+Select _HOMM Social Feed_ in the left navigation.
 
 You can set following properties:
 
@@ -100,11 +100,16 @@ More complex example in the template (Twig):
 {% endfor %}
 ```
 
-## HOMMSocialFeed Roadmap
+The `craft.socialFeed.all()` function accepts following parameters:
+
+1. `(array) $conditions`: An array of `where`-/`andWhere`-Conditions (see example above).
+1. `(?int) $limit`: Overwrite the default limit provided in the settings page.
+1. `(?array) $orderBy`: Order by one or multiple columns. The default is `['homm_socialfeeds.feedDateCreated' => SORT_DESC]`.
+
+## HOMM Social Feed Roadmap
 
 Some things to do, and ideas for potential features:
 
 * Add filters in the CP section
-* Usability: improve update link (replace with a button, js and a loading animation)
 
 Brought to you by [HOMM interactive](https://github.com/HOMMinteractive)

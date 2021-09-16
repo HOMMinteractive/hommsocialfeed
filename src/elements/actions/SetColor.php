@@ -1,6 +1,6 @@
 <?php
 /**
- * HOMMSocialFeed plugin for Craft CMS 3.x
+ * HOMM Social Feed plugin for Craft CMS 3.x
  *
  * HOMM Social Feed Adapter for Juicer
  *
@@ -10,7 +10,6 @@
 
 namespace homm\hommsocialfeed\elements\actions;
 
-use Craft;
 use craft\base\ElementAction;
 use craft\elements\db\ElementQueryInterface;
 use homm\hommsocialfeed\HOMMSocialFeed;

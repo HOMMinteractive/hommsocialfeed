@@ -1,8 +1,8 @@
 <?php
 /**
- * HOMMSocialFeed plugin for Craft CMS 3.x
+ * HOMM Social Feed plugin for Craft CMS 3.x
  *
- * Craft CMS Social Feed Adapter for juicer.io
+ * HOMM Social Feed Adapter for Juicer
  *
  * @link      https://github.com/HOMMinteractive
  * @copyright Copyright (c) 2021 HOMM interactive

@@ -1,6 +1,6 @@
 <?php
 /**
- * HOMMSocialFeed plugin for Craft CMS 3.x
+ * HOMM Social Feed plugin for Craft CMS 3.x
  *
  * HOMM Social Feed Adapter for Juicer
  *
