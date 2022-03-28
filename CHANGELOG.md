@@ -10,6 +10,8 @@ to [Semantic Versioning](http://semver.org/).
 - Consistent plugin naming in all files
 - Make the `$orderBy` parameter optional
 - Updated PHPDocs and README.md
+- Check if post image can be downloaded
+- Get SocialFeeds with any status
 
 ## 1.2.2 - 2021-07-26
 

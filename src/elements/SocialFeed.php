@@ -292,7 +292,13 @@ class SocialFeed extends Element
             $this->video = null;
         }
 
-        if (!$this->image) {
+        if ($this->image) {
+            try {
+                (new GuzzleClient())->head($this->image);
+            } catch (BadResponseException $e) {
+                $this->image = null;
+            }
+        } else {
             $this->image = null;
         }
 

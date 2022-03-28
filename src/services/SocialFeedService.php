@@ -59,12 +59,12 @@ class SocialFeedService extends Component
         $posts = json_decode($response->getBody())->posts->items; // TODO: extend the Guzzle ResponseInterface
 
         $errors = [];
-        $socialFeeds = SocialFeed::find()->where(['feedId' => array_column($posts, 'id')])->all();
+        $socialFeeds = SocialFeed::find()->anyStatus()->where(['feedId' => array_column($posts, 'id')])->all();
         $feedIds = array_column($socialFeeds, 'feedId');
         foreach ($posts as $post) {
             $socialFeed = new SocialFeed();
             if (in_array($post->id, $feedIds)) {
-                $socialFeed = SocialFeed::find()->where(['feedId' => $post->id])->one();
+                $socialFeed = SocialFeed::find()->anyStatus()->where(['feedId' => $post->id])->one();
             }
 
             $attributes = [
