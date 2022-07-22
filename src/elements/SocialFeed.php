@@ -87,7 +87,7 @@ class SocialFeed extends Element
     /**
      * @var array|null Additional photos URL
      */
-    public ?array $additionalPhotos = null;
+    public $additionalPhotos = null;
 
     /**
      * @var string|null Video URL
