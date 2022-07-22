@@ -31,7 +31,7 @@ class HideMedia extends ElementAction
     /**
      * @inheritdoc
      */
-    public function getTriggerHtml()
+    public function getTriggerHtml(): ?string
     {
         \Craft::$app->view->setTemplateMode(\craft\web\View::TEMPLATE_MODE_CP);
         return \Craft::$app->view->renderTemplate('hommsocialfeed/feeds/_hideMediaTrigger');
@@ -53,7 +53,7 @@ class HideMedia extends ElementAction
             }
         }
 
-        $this->setMessage(Craft::t('hommsocialfeed', 'Successfully updated.'));
+        $this->setMessage(\Craft::t('hommsocialfeed', 'Successfully updated.'));
         return true;
     }
 }
