@@ -93,6 +93,11 @@ class SocialFeed extends Element
     public $video = null;
 
     /**
+     * @var string The Poster's name
+     */
+    public $posterName = null;
+
+    /**
      * @var bool Hide the image or not
      */
     public $isMediaHidden = false;
@@ -157,6 +162,7 @@ class SocialFeed extends Element
             'image' => ['label' => Craft::t('hommsocialfeed', 'Image')],
             'additionalPhotos' => ['label' => Craft::t('hommsocialfeed', 'Additional photos')],
             'video' => ['label' => Craft::t('hommsocialfeed', 'Video')],
+            'posterName' => ['label' => Craft::t('hommsocialfeed', 'Poster\'s name')],
             'isMediaHidden' => ['label' => Craft::t('hommsocialfeed', 'Hide image/video')],
             'color' => ['label' => Craft::t('hommsocialfeed', 'Color')],
             'dateCreated' => ['label' => Craft::t('hommsocialfeed', 'Date Created')],
@@ -236,7 +242,8 @@ class SocialFeed extends Element
             'image',
             'additionalPhotos',
             'video',
-            'color'
+            'color',
+            'posterName',
         ];
     }
 
@@ -324,6 +331,7 @@ class SocialFeed extends Element
             'image' => $this->image,
             'additionalPhotos' => $this->additionalPhotos,
             'video' => $this->video,
+            'posterName' => $this->posterName,
             'isMediaHidden' => $this->isMediaHidden,
             'color' => $this->color,
         ];

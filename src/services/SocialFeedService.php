@@ -79,6 +79,7 @@ class SocialFeedService extends Component
                 'image' => $post->image,
                 'additionalPhotos' => $post->additional_photos,
                 'video' => $post->video ?? null,
+                'posterName' => $post->poster_name,
             ];
 
             if (!$this->update($socialFeed, $attributes)) {
