@@ -74,6 +74,11 @@ class SocialFeedQuery extends ElementQuery
     public $video = null;
 
     /**
+     * @var string The Poster's name
+     */
+    public $posterName = '';
+
+    /**
      * @var bool Hide the media or not
      */
     public $isMediaHidden = false;
@@ -227,6 +232,18 @@ class SocialFeedQuery extends ElementQuery
     }
 
     /**
+     * Set the poster's name
+     *
+     * @param string $value
+     * @return $this
+     */
+    public function posterName($value)
+    {
+        $this->posterName = $value;
+        return $this;
+    }
+
+    /**
      * Set a custom color
      *
      * @param string|null $value Color handle
@@ -259,6 +276,7 @@ class SocialFeedQuery extends ElementQuery
                 'homm_socialfeeds.image',
                 'homm_socialfeeds.additionalPhotos',
                 'homm_socialfeeds.video',
+                'homm_socialfeeds.posterName',
                 'homm_socialfeeds.isMediaHidden',
                 'homm_socialfeeds.color',
                 'homm_socialfeeds.dateCreated',
