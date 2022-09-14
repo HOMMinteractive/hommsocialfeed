@@ -49,7 +49,7 @@ class HOMMSocialFeed extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '1.2.4';
+    public $schemaVersion = '1.2.5';
 
     /**
      * @var bool
