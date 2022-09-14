@@ -17,6 +17,14 @@ to [Semantic Versioning](http://semver.org/).
 
 - Craft CMS 4 ready
 
+## 1.2.5 - 2022-09-14
+
+- Fixed field "posterName" in new installations
+
+## 1.2.4 - 2022-09-12
+
+- Added new field "posterName"
+
 ## 1.2.3 - 2021-09-16
 
 - Consistent plugin naming in all files

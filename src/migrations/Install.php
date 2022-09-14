@@ -36,6 +36,7 @@ class Install extends Migration
                 'likeCount' => $this->integer()->unsigned()->notNull()->defaultValue(0),
                 'image' => $this->string(1024),
                 'additionalPhotos' => $this->text(),
+                'posterName' => $this->string(),
                 'video' => $this->string(1024),
                 'isMediaHidden' => $this->boolean()->notNull()->defaultValue(false),
                 'color' => $this->string(20),

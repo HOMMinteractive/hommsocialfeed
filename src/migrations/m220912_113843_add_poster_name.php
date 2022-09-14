@@ -15,7 +15,7 @@ class m220912_113843_add_poster_name extends Migration
      */
     public function safeUp()
     {
-        $this->addColumn('{{%homm_socialfeeds}}', 'posterName', $this->text());
+        $this->addColumn('{{%homm_socialfeeds}}', 'posterName', $this->string());
     }
 
     /**

@@ -178,8 +178,8 @@ class SocialFeed extends Element
             'likeCount' => ['label' => Craft::t('hommsocialfeed', 'Likes')],
             'image' => ['label' => Craft::t('hommsocialfeed', 'Image')],
             'additionalPhotos' => ['label' => Craft::t('hommsocialfeed', 'Additional photos')],
-            'posterName' => ['label' => Craft::t('hommsocialfeed', 'Poster\'s name')],
             'video' => ['label' => Craft::t('hommsocialfeed', 'Video')],
+            'posterName' => ['label' => Craft::t('hommsocialfeed', 'Poster\'s name')],
             'isMediaHidden' => ['label' => Craft::t('hommsocialfeed', 'Hide image/video')],
             'color' => ['label' => Craft::t('hommsocialfeed', 'Color')],
             'dateCreated' => ['label' => Craft::t('hommsocialfeed', 'Date Created')],
@@ -259,8 +259,8 @@ class SocialFeed extends Element
             'image',
             'additionalPhotos',
             'video',
-            'color',
             'posterName',
+            'color',
         ];
     }
 
