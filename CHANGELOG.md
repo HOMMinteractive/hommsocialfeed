@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres
 to [Semantic Versioning](http://semver.org/).
 
+## 2.1.2 - 2022-09-21
+
+- Fixed Emoji encoding in post message
+
 ## 2.1.1 - 2022-09-14
 
 - Fixed field "posterName" in new installations
@@ -21,6 +25,10 @@ to [Semantic Versioning](http://semver.org/).
 ## 2.0.0 - 2022-07-22
 
 - Craft CMS 4 ready
+
+## 1.2.6 - 2022-09-21
+
+- Fixed Emoji encoding in post message
 
 ## 1.2.5 - 2022-09-14
 
