@@ -113,5 +113,6 @@ The `craft.socialFeed.all()` function accepts following parameters:
 Some things to do, and ideas for potential features:
 
 * Add filters in the CP section
+* Allow to save social feed images locally
 
 Brought to you by [HOMM interactive](https://github.com/HOMMinteractive)

@@ -72,11 +72,9 @@ class HOMMSocialFeed extends Plugin
         parent::init();
         self::$plugin = $this;
 
-        $this->setComponents(
-            [
-                'socialFeedService' => SocialFeedService::class,
-            ]
-        );
+        $this->setComponents([
+            'socialFeedService' => SocialFeedService::class,
+        ]);
 
         if (Craft::$app instanceof ConsoleApplication) {
             $this->controllerNamespace = 'homm\hommsocialfeed\console\controllers';
@@ -116,6 +114,13 @@ class HOMMSocialFeed extends Plugin
             ),
             __METHOD__
         );
+    }
+
+    public function getCpNavItem(): ?array
+    {
+        $item = parent::getCpNavItem();
+        $item['label'] = Craft::t('hommsocialfeed', 'Social Feed');
+        return $item;
     }
 
     // Protected Methods
