@@ -7,7 +7,7 @@ to [Semantic Versioning](http://semver.org/).
 
 ## 1.2.7 - 2023-09-21
 
-- Fixed Emoji encoding in post message
+- set correct color #5
 
 ## 1.2.6 - 2022-09-21
 
