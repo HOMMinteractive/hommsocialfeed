@@ -5,9 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres
 to [Semantic Versioning](http://semver.org/).
 
-## 1.2.7 - 2023-09-21
+## 2.1.3 - 2023-09-21
 
 - set correct color #5
+
+## 2.1.2 - 2022-09-21
+
+- Fixed Emoji encoding in post message
+
+## 2.1.1 - 2022-09-14
+
+- Fixed field "posterName" in new installations
+- Updated Version & Changelog
+
+## 2.1.0 - 2022-09-12
+
+- Added new field "posterName"
+
+## 2.0.1 - 2022-07-22
+
+- Fixed TypeError in elements/SocialFeed
+
+## 2.0.0 - 2022-07-22
+
+- Craft CMS 4 ready
 
 ## 1.2.6 - 2022-09-21
 

@@ -31,7 +31,7 @@ class SetColor extends ElementAction
     /**
      * @inheritdoc
      */
-    public function getTriggerHtml()
+    public function getTriggerHtml(): ?string
     {
         // Render the trigger menu template with all the available ingredients
         $colors = HOMMSocialFeed::$plugin->getSettings()->colors;
@@ -56,7 +56,7 @@ class SetColor extends ElementAction
             }
         }
 
-        $this->setMessage(Craft::t('hommsocialfeed', 'Successfully updated.'));
+        $this->setMessage(\Craft::t('hommsocialfeed', 'Successfully updated.'));
         return true;
     }
 }

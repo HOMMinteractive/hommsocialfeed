@@ -49,17 +49,17 @@ class HOMMSocialFeed extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '1.2.5';
+    public string $schemaVersion = '2.1.1';
 
     /**
      * @var bool
      */
-    public $hasCpSettings = true;
+    public bool $hasCpSettings = true;
 
     /**
      * @var bool
      */
-    public $hasCpSection = true;
+    public bool $hasCpSection = true;
 
     // Public Methods
     // =========================================================================
@@ -129,7 +129,7 @@ class HOMMSocialFeed extends Plugin
     /**
      * @inheritdoc
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?\craft\base\Model
     {
         return new Settings();
     }
@@ -137,7 +137,7 @@ class HOMMSocialFeed extends Plugin
     /**
      * @inheritdoc
      */
-    protected function settingsHtml(): string
+    protected function settingsHtml(): ?string
     {
         return Craft::$app->view->renderTemplate(
             'hommsocialfeed/settings',

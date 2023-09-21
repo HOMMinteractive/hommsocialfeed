@@ -1,4 +1,4 @@
-# HOMM Social Feed plugin for Craft CMS 3.x
+# HOMM Social Feed plugin for Craft CMS
 
 HOMM Social Feed Adapter for Juicer
 
@@ -6,7 +6,9 @@ HOMM Social Feed Adapter for Juicer
 
 ## Requirements
 
-This plugin requires Craft CMS 3.x.
+This plugin requires Craft CMS 4.x.
+
+For the Craft CMS 3.x plugin version, see 1.x tags.
 
 ## Installation
 

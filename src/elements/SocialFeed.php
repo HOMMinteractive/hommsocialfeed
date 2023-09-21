@@ -12,8 +12,10 @@ namespace homm\hommsocialfeed\elements;
 
 use Craft;
 use craft\base\Element;
+use craft\elements\actions\Edit;
 use craft\elements\actions\SetStatus;
 use craft\elements\db\ElementQueryInterface;
+use craft\elements\User;
 use craft\validators\StringValidator;
 use craft\web\View;
 use GuzzleHttp\Client as GuzzleClient;
@@ -36,7 +38,7 @@ class SocialFeed extends Element
     /**
      * @var int Social Feed ID
      */
-    public $feedId;
+    public int $feedId;
 
     /**
      * @var \DateTime Social Feed Date Created
@@ -46,17 +48,17 @@ class SocialFeed extends Element
     /**
      * @var string The URL to the feed
      */
-    public $feedUrl;
+    public string $feedUrl;
 
     /**
      * @var string|null External URL provided from the feed
      */
-    public $externalUrl = null;
+    public ?string $externalUrl = null;
 
     /**
      * @var string|null Name of the social media provider
      */
-    public $source = null;
+    public ?string $source = null;
 
     /**
      * @var string|null Source options
@@ -65,22 +67,22 @@ class SocialFeed extends Element
      * of response you get back they will be included here.
      * E.g. "retweets".
      */
-    public $sourceOptions = null;
+    public ?string $sourceOptions = null;
 
     /**
      * @var string Feed text or title (as HTML)
      */
-    public $message;
+    public string $message;
 
     /**
-     * @var string Like Count
+     * @var int Like Count
      */
-    public $likeCount = 0;
+    public int $likeCount = 0;
 
     /**
      * @var string|null Image URL
      */
-    public $image = null;
+    public ?string $image = null;
 
     /**
      * @var array|null Additional photos URL
@@ -90,27 +92,22 @@ class SocialFeed extends Element
     /**
      * @var string|null Video URL
      */
-    public $video = null;
+    public ?string $video = null;
 
     /**
      * @var string The Poster's name
      */
-    public $posterName = null;
+    public ?string $posterName = null;
 
     /**
      * @var bool Hide the image or not
      */
-    public $isMediaHidden = false;
+    public bool $isMediaHidden = false;
 
     /**
      * @var string|null Color handle
      */
-    public $color = null;
-
-    /**
-     * @var int|null Pseudo property to count feeds by source
-     */
-    public $socialfeedsCount = null;
+    public ?string $color = null;
 
     /**
      * @inheritdoc
@@ -131,7 +128,7 @@ class SocialFeed extends Element
     /**
      * @inheritdoc
      */
-    public static function refHandle()
+    public static function refHandle(): ?string
     {
         return 'socialfeed';
     }
@@ -142,6 +139,26 @@ class SocialFeed extends Element
     public static function hasStatuses(): bool
     {
         return true;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function canView(User $user): bool
+    {
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function canSave(User $user): bool
+    {
+        if (parent::canSave($user)) {
+            return true;
+        }
+
+        return $user->can('hommsocialfeed-saveSocialFeed:' . $this->uid);
     }
 
     /**
@@ -189,7 +206,7 @@ class SocialFeed extends Element
         $sources[] = [
             'key' => '*',
             'label' => Craft::t('hommsocialfeed', 'All feeds'),
-            'badgeCount' => self::find()->anyStatus()->count(),
+            'badgeCount' => self::find()->status(null)->count(),
             'defaultSort' => ['feedDateCreated', 'desc'],
             'criteria' => [],
         ];
@@ -242,8 +259,8 @@ class SocialFeed extends Element
             'image',
             'additionalPhotos',
             'video',
-            'color',
             'posterName',
+            'color',
         ];
     }
 
@@ -252,13 +269,11 @@ class SocialFeed extends Element
      */
     protected static function defineActions(string $source = null): array
     {
-        $actions = [];
-
-        $actions[] = SetStatus::class;
-        $actions[] = SetColor::class;
-        $actions[] = HideMedia::class;
-
-        return $actions;
+        return [
+            SetStatus::class,
+            SetColor::class,
+            HideMedia::class,
+        ];
     }
 
     /**
@@ -317,7 +332,7 @@ class SocialFeed extends Element
     /**
      * @inheritdoc
      */
-    public function afterSave(bool $isNew)
+    public function afterSave(bool $isNew): void
     {
         $attributes = [
             'feedId' => $this->feedId,
