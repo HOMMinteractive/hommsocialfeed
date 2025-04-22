@@ -368,7 +368,7 @@ class SocialFeed extends Element
     /**
      * @inheritdoc
      */
-    protected function tableAttributeHtml(string $attribute): string
+    protected function attributeHtml(string $attribute): string
     {
         Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
         Craft::$app->view->registerAssetBundle(HOMMSocialFeedCPAsset::class);
@@ -412,6 +412,6 @@ class SocialFeed extends Element
                 );
         }
 
-        return parent::tableAttributeHtml($attribute);
+        return parent::attributeHtml($attribute);
     }
 }
