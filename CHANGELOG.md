@@ -7,6 +7,10 @@ to [Semantic Versioning](http://semver.org/).
 
 ## 2.1.3 - 2023-09-21
 
+- Craft CMS 5 compatible
+
+## 2.1.3 - 2023-09-21
+
 - set correct color #5
 
 ## 2.1.2 - 2022-09-21
