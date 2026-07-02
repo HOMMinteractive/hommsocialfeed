@@ -48,25 +48,7 @@ Add the following CronJob, to regularly update your social feeds:
 
 Instead of configuring the Juicer API URL directly in the Control Panel, you can define it via environment variables.
 
-Create a configuration file at `/config/hommsocialfeed.php`:
-
-```php
-<?php
-
-return [
-    'socialFeedBaseUrl' => '$JUICER_BASE_URL', // optional
-    'apiPath' => '$JUICER_API_PATH',
-];
-```
-
-Then add the corresponding variables to your `.env` file:
-
-```dotenv
-# Optional: Override the default Juicer base URL
-JUICER_BASE_URL="https://www.juicer.io"
-
-JUICER_API_PATH="/api/feeds/my-company"
-```
+A template configuration file is provided in [`src/config.php`](src/config.php). Copy it to `config/hommsocialfeed.php` and customize the settings for your environment.
 
 ## Using HOMM Social Feed
 
