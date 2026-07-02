@@ -44,6 +44,30 @@ Add the following CronJob, to regularly update your social feeds:
 /path/to/your/project/craft hommsocialfeed/social-feeds/update
 ```
 
+### Environment configuration
+
+Instead of configuring the Juicer API URL directly in the Control Panel, you can define it via environment variables.
+
+Create a configuration file at `/config/hommsocialfeed.php`:
+
+```php
+<?php
+
+return [
+    'socialFeedBaseUrl' => '$JUICER_BASE_URL', // optional
+    'apiPath' => '$JUICER_API_PATH',
+];
+```
+
+Then add the corresponding variables to your `.env` file:
+
+```dotenv
+# Optional: Override the default Juicer base URL
+JUICER_BASE_URL="https://www.juicer.io"
+
+JUICER_API_PATH="/api/feeds/my-company"
+```
+
 ## Using HOMM Social Feed
 
 Select _HOMM Social Feed_ in the left navigation.
@@ -78,7 +102,7 @@ More complex example in the template (Twig):
             {% elseif socialFeed.image is not empty %}
                 <a href="{{ socialFeed.feedUrl }}" title="{{ readMore }}" target="_blank">
                     <img src="{{ socialFeed.image }}" alt="{{ socialFeed.message|slice(0, 10) }}" loading="lazy">
-                    <span>                             
+                    <span>
                         {{ socialFeed.feedDateCreated|date('long') }}
                     </span>
                 </a>
