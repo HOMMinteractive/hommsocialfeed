@@ -23,5 +23,20 @@
  */
 
 return [
-    // code...
+    // Social Feed base URL. Supports environment variables (e.g. '$JUICER_BASE_URL').
+    // 'socialFeedBaseUrl' => 'https://www.juicer.io',
+
+    // API path for fetching feeds. Supports environment variables (e.g. '$JUICER_API_PATH').
+    // 'apiPath' => '/api/feeds/your-feed-name',
+
+    // Number of posts to fetch per request.
+    // 'numberOfFeeds' => 15,
+
+    // Available colors for tagging feed items ('handle' => CSS color value).
+    // Note: only the handle is stored per feed item.
+    // 'colors' => [
+    //     'muted'     => '#F0F0F1',
+    //     'highlight' => '#DD1460',
+    //     'dark'      => '#313131',
+    // ],
 ];

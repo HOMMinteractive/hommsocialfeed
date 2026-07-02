@@ -23,7 +23,7 @@ class Settings extends Model
     // =========================================================================
 
     /**
-     * @var string Social Feed base url
+     * @var string Social Feed base URL. Supports environment variables (e.g. '$JUICER_BASE_URL').
      */
     public $socialFeedBaseUrl = 'https://www.juicer.io';
 
@@ -40,7 +40,7 @@ class Settings extends Model
     ];
 
     /**
-     * @var string '/api/feeds/[company-name]'
+     * @var string API path for fetching feeds (e.g. '/api/feeds/company-name'). Supports environment variables (e.g. '$JUICER_API_PATH').
      */
     public $apiPath;
 

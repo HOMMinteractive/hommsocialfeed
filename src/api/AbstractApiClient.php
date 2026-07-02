@@ -10,6 +10,7 @@
 
 namespace homm\hommsocialfeed\api;
 
+use craft\helpers\App;
 use homm\hommsocialfeed\HOMMSocialFeed;
 
 /**
@@ -21,7 +22,7 @@ abstract class AbstractApiClient extends \GuzzleHttp\Client
 {
     public function __construct(array $config = [])
     {
-        $config['base_uri'] = HOMMSocialFeed::$plugin->getSettings()->socialFeedBaseUrl;
+        $config['base_uri'] = App::parseEnv(HOMMSocialFeed::$plugin->getSettings()->socialFeedBaseUrl);
         parent::__construct($config);
     }
 
@@ -32,7 +33,7 @@ abstract class AbstractApiClient extends \GuzzleHttp\Client
 
     protected function getApiPath(): string
     {
-        $apiPath = HOMMSocialFeed::$plugin->getSettings()->apiPath;
+        $apiPath = App::parseEnv(HOMMSocialFeed::$plugin->getSettings()->apiPath);
 
         if (!$apiPath) {
             throw new \Exception('The API path is not provided. Please check your plugin settings.');

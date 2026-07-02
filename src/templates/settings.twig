@@ -17,12 +17,24 @@
 
 {% do view.registerAssetBundle("homm\\hommsocialfeed\\assetbundles\\settings\\SettingsAsset") %}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
+    label: 'Social Feed Base URL'|t('hommsocialfeed'),
+    instructions: 'The base URL of the Juicer API. Supports environment variables.'|t('hommsocialfeed'),
+    id: 'socialFeedBaseUrl',
+    name: 'socialFeedBaseUrl',
+    value: settings['socialFeedBaseUrl'],
+    suggestEnvVars: true,
+    suggestAliases: true,
+    required: true,
+}) }}
+
+{{ forms.autosuggestField({
     label: 'Social Feed API path'|t('hommsocialfeed'),
-    instructions: 'Example: /api/feeds/artdecohotelmontana'|t('hommsocialfeed'),
+    instructions: 'Example: /api/feeds/artdecohotelmontana. Supports environment variables.'|t('hommsocialfeed'),
     id: 'apiPath',
     name: 'apiPath',
     value: settings['apiPath'],
+    suggestEnvVars: true,
     required: true,
 }) }}
 
