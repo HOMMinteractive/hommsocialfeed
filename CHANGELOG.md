@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres
 to [Semantic Versioning](http://semver.org/).
 
+## 3.0.1 - 2025-07-02
+
+- Address review feedback: add config.php docs and make socialFeedBaseUrl configurable
+- Support single feedUrl setting for complete Juicer URL
+- Use JUICER_FEED as example env variable name in docblock
+- Add environment variable support for socialFeedBaseUrl and apiPath settings
+
 ## 3.0.0 - 2025-04-22
 
 - Craft CMS 5 compatible
